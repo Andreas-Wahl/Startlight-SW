@@ -1,30 +1,119 @@
-# SLOTCAR STARTLIGHT "Bären(n)keller" 🚦
+# 🚦 Slotcar Startlight "Bären(n)keller"
 
-## Project Overview 🏎️
+## 🏎️ Project Overview
 
-In a private cellar bar that has been in existence for over two generations, originally named "Bärenkeller," a CARRERA® digital 132 racetrack was set up, and the first races were held. This quickly gained popularity among friends and acquaintances. As a result, the racetrack was gradually expanded, and possible extensions were discussed.
+Custom embedded firmware for a self-developed slotcar start light system for the CARRERA® Digital 124/132 platform.
 
-The idea of creating a custom starting light emerged because the original CARRERA® Startlight (30354) could not bridge three lanes (two lanes + pit lane). Additionally, the custom STARTAMPEL should not only display the start sequence with red lights but also indicate the race operation with green LEDs, the safety car/pace car operation, and a false start.
+The project includes:
 
-The idea was quickly taken up, the data signal was analyzed with an oscilloscope and data logger, and the development of hardware, software, and housing design was initiated.
+- ⚙️ AVR Assembly firmware
+- 📡 Manchester protocol decoder
+- 🔄 Finite State Machine (FSM)
+- 🚥 Race control and status indication
+- 🐞 Debugging via ISP and debugWIRE
+- 📖 Comprehensive technical documentation
 
-In reference to the "Bärenkeller," which was renamed "Bären(n)keller" due to the expansion of the CARRERA® digital 132 racetrack, the custom starting light was also named "STARTAMPEL 'Bären(n)keller'."
+---
 
-The STARTAMPEL "Bären(n)keller" was so well received that the developer decided to produce a small quantity as "prototypes" and make the development available for non-commercial use.
+## ✨ Features
 
-## Licensing 📜
+- 🚦 Start sequence indication
+- 🟢 Race operation indication
+- 🟡 Pace Car / Safety Car indication
+- ⚠️ False start detection
+- 🚧 Chaos / Track Stop indication
+- 🏁 Race winner indication
 
-- **Electronics and Housing Design**: Released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
-- **Software**: Released under the GNU Affero General Public License, Version 3.0 (AGPL-3.0).
+---
 
-## Repository Contents 📂
+## 🧠 Technical Highlights
 
-- **Assembler Source Code**: The complete source code for the STARTAMPEL "Bären(n)keller".
-- **Software Documentation**: Detailed documentation on the software development and usage.
+### 🔧 Hardware Platform
 
-## Getting Started 🚀
+- Microchip ATtiny2313
+- ⏱️ Internal 8 MHz oscillator
+- 📥 External interrupt driven signal acquisition
+- 🐞 debugWIRE support
 
-To get started with the project, clone the repository and follow the instructions in the documentation to set up the hardware and software.
+### 💻 Software Architecture
+
+```text
+Carrera Data Signal
+        │
+        ▼
+Manchester Decoder
+        │
+        ▼
+ Packet Analysis
+        │
+        ▼
+ Event Processing
+        │
+        ▼
+ Finite State Machine
+        │
+        ▼
+    LED Control
+```
+
+### 📦 Software Components
+
+- MAIN
+- DECODER
+- FSM (Finite State Machine)
+
+---
+
+## 📖 Project Background
+
+The project originated from a private CARRERA® Digital 132 racing track.
+
+The original CARRERA® Startlight could not span a track configuration with more than two racing lanes and did not provide all desired visual indications.
+
+Therefore, a complete custom solution was developed including:
+
+- 🔌 Hardware design
+- 📐 PCB layout
+- ⚙️ Embedded firmware
+- 🖨️ 3D CAD design
+- 📚 Technical documentation
+
+The system has been operating reliably for several years.
+
+---
+
+## 📂 Repository Contents
+
+- 💾 AVR Assembly source code
+- ⚙️ Include files and configuration headers
+- 📑 Software documentation
+- 🏗️ Architecture documentation
+
+---
+
+## 🔗 Related Projects
+
+- 🔌 Hardware: [Startlight-HW](https://github.com/Andreas-Wahl/Startlight-HW)
+- 🖨️ CAD Models: [Startlight-3D](https://github.com/Andreas-Wahl/Startlight-3D)
+
+---
+
+## 📜 Licensing
+
+### 🔌 Electronics & Housing Design
+
+CC BY-NC-SA 4.0
+
+### 💾 Software
+
+GNU AGPL v3.0
+
+---
+
+## 🚀 Getting Started
 
 ```bash
 git clone https://github.com/Andreas-Wahl/Startlight-SW.git
+```
+
+Refer to the documentation for architecture, implementation details and build instructions.
